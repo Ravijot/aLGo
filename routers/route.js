@@ -67,4 +67,8 @@ router.get('/Stack/:file/pic', (req, res) => {
 router.get('*', (req, res) => {
   res.send('404 Error')
 });
+process.on('uncaughtException', err => {
+  console.log(`Uncaught Exception: ${err.message}`)
+  process.exit(1)
+})
 module.exports = router
