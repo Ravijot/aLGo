@@ -11,10 +11,7 @@ var k10 = document.getElementById('a10');
 var k11 = document.getElementById('a11');
 var k12 = document.getElementById('a12');
 var k13 = document.getElementById('a13');
-var k14 = document.getElementById('a14');
-var k15 = document.getElementById('a15');
-var k16 = document.getElementById('a16');
-var k17 = document.getElementById('a17');
+
 
 
 const pic = '/pic';
@@ -106,24 +103,5 @@ k13.addEventListener("click", function () {
     work(x);
 });
 
-k14.addEventListener("click", function () {
-    var x = String(k14.innerText);
-    $('.box').remove();
-    work(x);
-});
-k15.addEventListener("click", function () {
-    var x = String(k15.innerText);
-    $('.box').remove();
-    work(x);
-});
-k16.addEventListener("click", function () {
-    var x = String(k16.innerText);
-    $('.box').remove();
-    work(x);
-});
-k17.addEventListener("click", function () {
-    var x = String(k17.innerText);
-    $('.box').remove();
-    work(x);
-});
+
 
