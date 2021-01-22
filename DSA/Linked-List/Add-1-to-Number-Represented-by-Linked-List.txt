@@ -1,0 +1,128 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+                if(head==NULL)
+                {
+    	               temp->data=n;
+    	               temp->next=NULL;
+    	               head=temp;
+    	  last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+	}
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List after adding 1  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+node* reverse(struct node *head)
+{
+	struct node *pre,*cur,*next;
+	pre=NULL;
+	cur=head;
+	while(cur!=NULL)
+	{
+		next=cur->next;
+		cur->next=pre;
+		pre=cur;
+		cur=next;
+	}
+	head=pre;
+	return head;
+}
+node *addone(struct node *head)
+{
+	node *temp=head;
+                bool check = false;
+                while(temp!=NULL)
+                {
+                      if(temp->next==NULL)
+                      {
+                          if(temp->data<9)
+                          {
+                                 temp->data = temp->data + 1;
+                                 check = true;
+                            }
+                      }
+                      temp = temp->next;
+                 }
+	if(check)
+	{
+		return head;
+	}
+	else
+	{
+		head = reverse(head);
+    	                node *p = head,*q=NULL;
+    	                int carry = 1 ;
+    	                while(p!=NULL && carry == 1)
+    	                {
+    	                  	int sum = carry + p->data ;
+    	                	if(sum>=10)
+    		                {
+	    		       sum = sum%10;
+	    		       carry=1;
+	    	                 }
+		                else
+		                {
+		                	carry=0;
+		                 }
+		                 q=p;
+	    	                 p->data = sum;
+	    	                 p=p->next;
+	                 }
+	                 if(carry)
+       	                 {
+	    	        node *s = new node();
+	     	        s->data=carry;
+	    	        s->next=NULL;
+	     	        q->next=s;
+	                  }
+                                 head = reverse(head);
+     	                 return head;
+	}
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+    }
+    head = addone(head);
+    display(head);
+    getch();
+    return 0;
+}

@@ -1,0 +1,94 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class stack
+{
+	private:
+		struct node 
+		{
+			int data;
+			struct node *next;
+		}*TOP;
+		public:
+			stack()
+			{
+				TOP=NULL;
+			}
+			void push();
+			void pop();
+			void display();
+};
+void stack::pop()
+{
+	struct node *k;
+	k= new struct node();
+	k=TOP;
+	TOP=TOP->next;
+	delete k;
+}
+void stack::push()
+{
+	cout<<"\nEnter the number";
+	int n;
+	cin>>n;
+	struct node *temp;
+	temp=new struct node();
+	temp->data=n;
+	temp->next=TOP;
+	TOP=temp;
+}
+void stack::display()
+{
+	struct node *t;
+	t=new struct node();
+	t=TOP;
+	if(t==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		cout<<"Elements of Stack are : ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+     stack s;
+     int choice,n;
+     label:
+     system("CLS");
+     cout<<"1.Enter 1 for Push Operation";
+     cout<<"\n2.Enter 2 for Pop Operation";
+     cout<<"\n3.Enter 3 for Display Operation";
+     cin>>choice;
+     switch(choice)
+     {
+	case 1:	
+	s.push();
+	goto label;
+	case 2:
+	 s.pop();
+	 goto label;
+	 case 3:
+	  s.display();
+	  cout<<"\nEnter 1 for continue and 0 for exit";
+	  int b;
+	  cin>>b;
+	  if(b==1)
+	  {
+		goto label;
+	   }
+	   else
+	   {
+		exit(-1);
+	   }
+	   goto label;
+	}
+	getch();
+	return 0;
+}

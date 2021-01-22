@@ -1,0 +1,90 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class list
+{
+     private:
+	struct node 
+	{
+	     int data;
+	     struct node *next;
+	}*head=NULL,*last=NULL;
+     public:
+	list()
+	{
+	     head=NULL;
+	}
+	void insert();
+	void display();
+	void reverse();
+};
+void list::reverse()
+{
+	struct node *pre,*cur,*next;
+	pre=NULL;
+	cur=head;
+	while(cur!=NULL)
+	{
+	     next=cur->next;
+	     cur->next=pre;
+	     pre=cur;
+	     cur=next;
+	}
+	head=pre;
+}
+void list::insert()
+{
+	cout<<"Enter the number";
+	int n;
+	cin>>n;
+	struct node *temp;
+	temp=new struct node();
+	temp->data=n;
+	temp->next=NULL;
+	if(head==NULL)
+	{
+	     head = last = temp;
+	}
+	else
+	{
+	     last->next = temp;
+	     last = temp;
+	}
+}
+void list::display()
+{
+	struct node *t;
+	t=new struct node();
+	t=head;
+	if(t==NULL)
+	{
+	     cout<<"List is empty";
+	}
+	else
+	{
+		while(t!=NULL)
+		{
+		     cout<<t->data<<" ";
+		     t=t->next;
+		}
+	}
+}
+int main()
+{
+     list l;
+     cout<<"Enter the number of elements you want to enter";
+     int n;
+     cin>>n;
+     int a;
+     for(int i=0;i<n;i++)
+     {		
+	l.insert();
+     }
+     l.display();
+     cout<<"\nLinked List after reverse operation";
+     l.reverse();
+     cout<<endl;
+     l.display();
+     getch();
+     return 0;
+}

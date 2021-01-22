@@ -1,0 +1,64 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL;
+void recursive_reverse(struct node *q,struct node *p)
+{
+	if(p!=NULL)
+	{
+		recursive_reverse(p,p->next);
+		p->next=q;
+	}
+	else
+	{
+		head=q;
+	}
+}
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+	temp->data=n;
+	temp->next=head;
+	head=temp;
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+	insert(1);
+	insert(2);
+	insert(3);
+	insert(4);
+	insert(5);
+	insert(6);
+	cout<<"Linked List - ";
+	display(head);
+	struct node *p,*q;
+	p=head;
+	q=NULL;
+	recursive_reverse(q,p);
+	cout<<"\nLinked List after reversal - ";
+	display(head);
+	getch();
+	return 0;
+}

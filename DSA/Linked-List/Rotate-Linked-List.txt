@@ -1,0 +1,86 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+    if(head==NULL)
+    {
+    	temp->data=n;
+    	temp->next=NULL;
+    	head=temp;
+    	last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+	}
+}
+node* rotate(struct node *head,int k)
+{
+	struct node* end=head;
+	while(end->next!=NULL)
+	{
+		end = end->next;
+	}
+	struct node *temp=head;
+	for(int i=1;i<k;i++)
+	{
+		temp=temp->next;
+	}
+	if(temp->next!=NULL) 
+	/*If the length of the linked list 
+	is equal to the k then same linked list will print*/
+	{
+		struct node *first=head;
+    	head = temp->next;
+	    end->next = first;
+	    temp->next=NULL;
+	}
+	return head;
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List is  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+    }
+    cout<<"Enter number of nodes you want to rotate";
+    int k;
+    cin>>k;
+    head = rotate(head,k);
+    display(head);
+    return 0;
+}

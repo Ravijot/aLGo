@@ -1,0 +1,112 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+    if(head==NULL)
+    {
+    	temp->data=n;
+    	temp->next=NULL;
+    	head=temp;
+    	last=head;
+     }
+     else
+     {
+	temp->data=n;
+	temp->next=NULL;
+	last->next=temp;
+	last=last->next;
+       }
+}
+void oddeven(struct node *head)
+{
+	struct node *odd=NULL,*oddtail=NULL;
+	struct node *even=NULL,*eventail=NULL;
+	struct node *cur=head;
+	while(cur!=NULL)
+	{
+		if(cur->data & 1) //cur node is odd
+		{
+			if(odd==NULL)
+			{
+				odd=oddtail=cur;
+			}
+			else
+			{
+				oddtail->next=cur;
+				oddtail=oddtail->next;
+			}
+		}
+		else       //cur node is even
+		{
+			if(even==NULL)
+			{
+				even=eventail=cur;
+			}
+			else
+			{
+				eventail->next=cur;
+				eventail=eventail->next;
+			}
+		}
+		cur=cur->next;
+	}
+	if(odd!=NULL && even!=NULL)
+	{
+		head=odd;
+		oddtail->next=even;
+		eventail->next=NULL;
+	}
+	else if(odd==NULL)
+	{
+		head=even;
+		eventail->next=NULL;
+	}
+	else
+	{
+		head=odd;
+		oddtail->next=NULL;
+	}
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"\nLinked List is  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+     }
+    display(head);
+    oddeven(head);
+    display(head);
+    getch();
+    return 0;
+}

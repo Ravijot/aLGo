@@ -1,0 +1,225 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+};
+struct node* reverse(struct node* head)
+{
+	struct node *pre,*cur,*next;
+	pre=NULL;
+	cur=head;
+	while(cur!=NULL)
+	{
+		next=cur->next;
+		cur->next=pre;
+		pre=cur;
+		cur=next;
+	}
+	head=pre;
+	return head;
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List after addition - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+void addlist(node *p,node *q)
+{
+	node *h1=p,*h2=q,*l=NULL;
+	int len1=0,len2=0;
+	while(h1!=NULL)
+	{
+		len1++;
+		h1=h1->next;
+	}
+	while(h2!=NULL)
+	{
+		len2++;
+		h2=h2->next;
+	}
+	
+	if(len1==len2)
+	{
+		p=reverse(p);
+		q=reverse(q);
+		node * j=p,*k=q;
+		int carry=0;
+		while(j!=NULL)
+		{
+			int sum = j->data + carry + k->data;
+			if(sum>=10)
+			{
+				sum = sum-10;
+				carry = 1;
+			}
+			else
+			{
+				carry=0;
+			}
+			j->data=sum;
+			l=j;
+			j=j->next;
+			k=k->next;
+		}
+		if(carry)
+		{
+			struct node* k= new node();
+			k->data=carry;
+			k->next=NULL;
+			l->next = k;
+		}
+		
+		p=reverse(p);
+		display(p);
+	}
+	else
+	{
+		p=reverse(p);
+		q=reverse(q);
+		node *g=p,*h=q;
+		node *head=NULL,*tail=NULL;
+		int carry=0;
+		while(g!=NULL && h!=NULL)
+		{
+			int sum = g->data + carry + h->data;
+			if(sum>=10)
+			{
+				sum = sum-10;
+				carry = 1;
+			}
+			else
+			{
+				carry=0;
+			}
+			node *temp=new node();
+			temp->data=sum;
+			temp->next=NULL;
+			if(head==NULL)
+			{
+				head=temp;
+				tail=temp;
+			}
+			else
+			{
+				tail->next=temp;
+				tail=temp;
+			}
+			g=g->next;
+			h=h->next;
+		}
+		if(g!=NULL)
+		{
+			int sum = g->data + carry ;
+			if(sum>=10)
+			{
+				sum=sum-10;
+				carry=1;
+			}
+			else
+			{
+				carry=0;
+			}
+			node *temp=new node();
+			temp->data=sum;
+			temp->next=NULL;
+			if(head==NULL)
+			{
+				head=temp;
+				tail=temp;
+			}
+			else
+			{
+				tail->next=temp;
+				tail=temp;
+			}
+			g=g->next;
+		}
+		if(h!=NULL)
+		{
+			int sum = h->data + carry ;
+			if(sum>=10)
+			{
+				sum=sum-10;
+				carry=1;
+			}
+			else
+			{
+				carry=0;
+			}
+			node *temp=new node();
+			temp->data=sum;
+			temp->next=NULL;
+			if(head==NULL)
+			{
+				head=temp;
+				tail=temp;
+			}
+			else
+			{
+				tail->next=temp;
+				tail=temp;
+			}
+			h=h->next;
+		}
+		if(carry)
+		{
+			node *temp=new node();
+			temp->data=carry;
+			temp->next=NULL;
+			tail->next=temp;
+			tail=temp;
+		}
+		head = reverse(head);
+		display(head);
+	}
+}
+struct node * buildlist()
+{
+	cout<<"Enter the number of elements you want to enter";
+	int n;
+	cin>>n;
+	node *head=NULL,*last=NULL;
+	for(int i=0;i<n;i++)
+	{
+	                       struct node *temp;
+	                       temp=new struct node();
+	                       cin>>temp->data;
+                               if(head==NULL)
+                               {
+                                       temp->next=NULL;
+                                       head=temp;
+                                       last=head;
+                                }
+                                else
+                                {
+                                       temp->next=NULL;
+                                       last->next=temp;
+                                       last=temp;
+                                 } 
+	}
+	return head;
+}
+int main()
+{
+    node *first = buildlist();
+    node *second = buildlist();
+    addlist(first,second);
+    getch();
+    return 0;
+}
