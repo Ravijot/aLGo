@@ -5,7 +5,7 @@ const app = express()
 
 var fs = require('fs')
 ext = '.txt'
-pic = '.jpg'
+pic = '.JPG'
 router.get('/',(req,res) => {
     res.sender('./public/index.html')
 })
