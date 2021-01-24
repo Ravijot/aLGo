@@ -26,7 +26,7 @@ const heading = '/heading';
 const pic = '/pic';
 function work(x) {
     var s = x.split(' ').join('-'); 
-    var sr = 'https://alg-o.herokuapp.com/Linked-List/'+s+pic;
+    var sr = '/Linked-List/'+s+pic;
     $('#main')
     .append('<div class="heading"></div>')
     .append('<div class="content"></content>')

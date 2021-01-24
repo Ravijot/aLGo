@@ -20,21 +20,21 @@ class list
 };
 void list::printnode()
 {
-	int k;
-	cout<<"\nEnter the K node which you want to print from end";
-	cin>>k;
-	struct node *slow,*fast;
-	slow=fast=head;
-	for(int i=0;i<k;i++)
-	{
-		fast=fast->next;
-	}
-	while(fast!=NULL)
-	{
-		slow=slow->next;
-		fast=fast->next;
-	}
-	cout<<"\n"<<k<<" Node from last of linked list "<<slow->data;
+  int k;
+  cout<<"\nEnter the K node which you want to print from end";
+  cin>>k;
+  struct node *slow,*fast;
+  slow=fast=head;
+  for(int i=0;i<k;i++)
+  {
+	fast=fast->next;
+  }
+  while(fast!=NULL)
+  {
+	slow=slow->next;
+	fast=fast->next;
+  }
+cout<<"\n"<<k<<" Node from last of linked list "<<slow->data;
 }
 void list::insert()
 {

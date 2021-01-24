@@ -13,7 +13,8 @@ body{
 }
 nav
 {
-    background-color: #E94B3CFF;
+    /* #E94B3CFF*/
+    background-color:#E94B3CFF;
     height: 80px;
     width: 100%;
 }
