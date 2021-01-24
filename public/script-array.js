@@ -1,3 +1,4 @@
+
 var k1 = document.getElementById('a1');
 var k2 = document.getElementById('a2');
 var k3 = document.getElementById('a3');
@@ -10,15 +11,15 @@ var k9 = document.getElementById('a9');
 var k10 = document.getElementById('a10');
 var k11 = document.getElementById('a11');
 var k12 = document.getElementById('a12');
-var k13 = document.getElementById('a13');
-
-
-
+function goBack() {
+    window.location.reload()
+  }
 const pic = '/pic';
 function work(x) {
     var s = x.split(' ').join('-'); 
     var sr = '/Array/'+s+pic;
     $('#main')
+    .append('<button onclick="goBack()" class="back">Back</button>')
     .append('<div class="heading"></div>')
     .append('<div class="content"></content>')
     .append('<div class="output">Output</div>')
@@ -37,6 +38,7 @@ function work(x) {
     .then( data => { content.innerText = data}) 
    
 }
+
 k1.addEventListener("click", function () {
     var x = String(k1.innerText);
     $('.box').remove();

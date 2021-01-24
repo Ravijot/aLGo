@@ -63,19 +63,19 @@ void list::deleteend()
 }
 void list::deletepos()
 {
-	struct node *temp,*pre;
-	pre=NULL;
-	temp=head;
-	cout<<"Enter the position where you want to delete the node";
-	int pos;
-	cin>>pos;
-	for(int i=1;i<pos;i++)
-	{
-		pre=temp;
-		temp=temp->next;
-	}
-	pre->next=temp->next;
-	delete temp;
+struct node *temp,*pre;
+pre=NULL;
+temp=head;
+cout<<"Enter the position where you want to delete the node";
+int pos;
+cin>>pos;
+for(int i=1;i<pos;i++)
+{
+	pre=temp;
+	temp=temp->next;
+}
+pre->next=temp->next;
+delete temp;
 }
 void list::display()
 {

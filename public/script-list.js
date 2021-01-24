@@ -22,12 +22,16 @@ var k21 = document.getElementById('l21');
 var k22 = document.getElementById('l22');
 var k23 = document.getElementById('l23');
 var k24 = document.getElementById('l24');
+function goBack() {
+    window.location.reload()
+  }
 const heading = '/heading';
 const pic = '/pic';
 function work(x) {
     var s = x.split(' ').join('-'); 
     var sr = '/Linked-List/'+s+pic;
     $('#main')
+    .append('<button onclick="goBack()" class="back">Back</button>')
     .append('<div class="heading"></div>')
     .append('<div class="content"></content>')
     .append('<div class="output">Output</div>')

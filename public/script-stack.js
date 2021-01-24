@@ -7,12 +7,15 @@ var k6 = document.getElementById('s6');
 var k7 = document.getElementById('s7');
 var k8 = document.getElementById('s8');
 var k9 = document.getElementById('s9');
-
+function goBack() {
+    window.location.reload()
+  }
 const pic = '/pic';
 function work(x) {
     var s = x.split(' ').join('-'); 
     var sr = '/Stack/'+s+pic;
     $('#main')
+    .append('<button onclick="goBack()" class="back">Back</button>')
     .append('<div class="heading"></div>')
     .append('<div class="content"></content>')
     .append('<div class="output">Output</div>')
