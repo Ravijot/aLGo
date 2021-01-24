@@ -29,7 +29,7 @@ else if(arr[start]+arr[end] < temp)
 else
 {
 cout<<"\nTarget Sum Pairs are\n";
-cout<< arr[i] << ", " << arr[start] << " and " << arr[end] << endl;
+cout<<arr[i]<<"," <<arr[start]<<" and "<<arr[end]<<endl;
 start++;
 end--;
 }
