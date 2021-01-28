@@ -7,7 +7,7 @@ var k6 = document.getElementById('t6');
 var k7 = document.getElementById('t7');
 var k8 = document.getElementById('t8');
 
-
+var k8 = document.getElementById('t9');
 function goBack() {
     window.location.reload()
   }
@@ -77,31 +77,6 @@ k8.addEventListener("click", function () {
 });
 k9.addEventListener("click", function () {
     var x = String(k9.innerText);
-    $('.box').remove();
-    work(x);
-});
-k10.addEventListener("click", function () {
-    var x = String(k10.innerText);
-    $('.box').remove();
-    work(x);
-});
-k11.addEventListener("click", function () {
-    var x = String(k11.innerText);
-    $('.box').remove();
-    work(x);
-});
-k12.addEventListener("click", function () {
-    var x = String(k12.innerText);
-    $('.box').remove();
-    work(x);
-});
-k13.addEventListener("click", function () {
-    var x = String(k13.innerText);
-    $('.box').remove();
-    work(x);
-});
-k14.addEventListener("click", function () {
-    var x = String(k14.innerText);
     $('.box').remove();
     work(x);
 });
