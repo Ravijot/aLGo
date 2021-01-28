@@ -61,27 +61,27 @@ int main()
 	switch(choice)
 	{
 	        case 1:
-		cout<<"\nEnter the number you want to enter";
-		cin>>n;
-		s.push(n);
-		goto label;
-		case 2:
-		 s.pop();
+	        cout<<"\nEnter the number you want to enter";
+	        cin>>n;
+	        s.push(n);
+	        goto label;
+                        case 2:
+	        s.pop();
+                        goto label;
+	        case 3:
+                        s.display();
+	        cout<<"\nEnter 1 for continue and 0 for exit";
+	        int b;
+                        cin>>b;
+                        if(b==1)
+	        {
 		 goto label;
-		 case 3:
-		  s.display();
-		  cout<<"\nEnter 1 for continue and 0 for exit";
-	                   int b;
-		   cin>>b;
-		   if(b==1)
-		   {
-		      goto label;
-                	    }
-	                    else
-		     {
-		          exit(-1);
-		     }
-		     goto label;
+                         }
+	         else
+                         {
+		 exit(-1);
+                          }
+                          goto label;
 	}
 	return 0;
 }
