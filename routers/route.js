@@ -4,7 +4,7 @@ const router = new express.Router()
 const app = express()
 
 var fs = require('fs')
-ext = '.txt'
+ext = '.TXT'
 pic = '.JPG'
 router.get('/',(req,res) => {
     res.sender('./public/index.html')
