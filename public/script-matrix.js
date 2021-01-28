@@ -7,7 +7,7 @@ var k6 = document.getElementById('t6');
 var k7 = document.getElementById('t7');
 var k8 = document.getElementById('t8');
 
-var k8 = document.getElementById('t9');
+var k9 = document.getElementById('t9');
 function goBack() {
     window.location.reload()
   }
