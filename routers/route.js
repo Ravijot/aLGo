@@ -65,6 +65,96 @@ router.get('/Stack/:file/pic', (req, res) => {
         res.write(data);
       });
 });
+router.get('/Queue/:file', (req, res) => {
+  const name = req.params.file
+  
+    fs.readFile('./DSA/Queue/'+name+ext,'utf8',function(err,data) {
+        if(err) throw err;
+         res.send(data)
+    });
+  });
+router.get('/Queue/:file/pic', (req, res) => {
+      const name = req.params.file
+      fs.readFile('./DSA/Queue/'+name+'-Pic'+pic, function (err, data) {
+        if (err) throw err;
+        res.write(data);
+      });
+});
+router.get('/Tree/:file', (req, res) => {
+  const name = req.params.file
+  
+    fs.readFile('./DSA/Tree/'+name+ext,'utf8',function(err,data) {
+        if(err) throw err;
+         res.send(data)
+    });
+  });
+router.get('/Tree/:file/pic', (req, res) => {
+      const name = req.params.file
+      fs.readFile('./DSA/Tree/'+name+'-Pic'+pic, function (err, data) {
+        if (err) throw err;
+        res.write(data);
+      });
+});
+router.get('/Sorting/:file', (req, res) => {
+  const name = req.params.file
+  
+    fs.readFile('./DSA/Sorting/'+name+ext,'utf8',function(err,data) {
+        if(err) throw err;
+         res.send(data)
+    });
+  });
+router.get('/Sorting/:file/pic', (req, res) => {
+      const name = req.params.file
+      fs.readFile('./DSA/Sorting/'+name+'-Pic'+pic, function (err, data) {
+        if (err) throw err;
+        res.write(data);
+      });
+});
+router.get('/String/:file', (req, res) => {
+  const name = req.params.file
+  
+    fs.readFile('./DSA/String/'+name+ext,'utf8',function(err,data) {
+        if(err) throw err;
+         res.send(data)
+    });
+  });
+router.get('/String/:file/pic', (req, res) => {
+      const name = req.params.file
+      fs.readFile('./DSA/String/'+name+'-Pic'+pic, function (err, data) {
+        if (err) throw err;
+        res.write(data);
+      });
+});
+router.get('/Recursion/:file', (req, res) => {
+  const name = req.params.file
+  
+    fs.readFile('./DSA/Recursion/'+name+ext,'utf8',function(err,data) {
+        if(err) throw err;
+         res.send(data)
+    });
+  });
+router.get('/Recursion/:file/pic', (req, res) => {
+      const name = req.params.file
+      fs.readFile('./DSA/Recursion/'+name+'-Pic'+pic, function (err, data) {
+        if (err) throw err;
+        res.write(data);
+      });
+});
+router.get('/Matrix/:file', (req, res) => {
+  const name = req.params.file
+  
+    fs.readFile('./DSA/Matrix/'+name+ext,'utf8',function(err,data) {
+        if(err) throw err;
+         res.send(data)
+    });
+  });
+router.get('/Matrix/:file/pic', (req, res) => {
+      const name = req.params.file
+      fs.readFile('./DSA/Matrix/'+name+'-Pic'+pic, function (err, data) {
+        if (err) throw err;
+        res.write(data);
+      });
+});
 router.get('*', (req, res) => {
   res.send('404 Error')
 });

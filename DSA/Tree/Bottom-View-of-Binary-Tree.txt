@@ -1,0 +1,76 @@
+#include<iostream>
+#include<queue>
+#include<map>
+#include<iterator>
+#include<conio.h>
+using namespace std;
+class node
+{
+	public:
+		int data;
+		node *left;
+		node *right;
+		node(int d)
+		{
+			data=d;
+			left=NULL;
+			right=NULL;
+		}
+};
+node* buildtree()
+{
+int d;
+cin>>d;
+if(d==-1)
+{
+	return NULL;
+}
+node *root=new node(d);
+root->left=buildtree();
+root->right=buildtree();
+return root;
+}
+void verticalorderprint(node *root,map<int,int>  &m)
+{
+    if(root==NULL)
+	{
+		return ;
+	}
+	
+	int val=0;
+	queue<pair<node*,int> > q;
+	q.push(make_pair(root,0));
+	while(!q.empty())
+	{
+		pair<node*,int> p=q.front();
+		node *n=p.first;
+	    val=p.second;
+	    q.pop();
+	   
+	    	m[val]=n->data;
+	    	
+		
+		if(n->left!=NULL)
+		{
+			q.push(make_pair(n->left,val-1));
+		}
+		if(n->right!=NULL)
+		{
+			q.push(make_pair(n->right,val+1));
+		}
+	}
+}
+
+int main()
+{
+	node *root=buildtree();
+	map<int,int> m;
+	verticalorderprint(root,m);
+	cout<<"Bottom View OF Binary Tree - ";
+	for(auto p:m)
+	{
+		cout<<p.second<<" ";
+		
+	}
+	return 0;
+}

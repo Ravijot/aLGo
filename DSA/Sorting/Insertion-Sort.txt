@@ -1,0 +1,49 @@
+/*
+ Let we have n number of elements and 
+we want to implement insertion sort 
+on these elements.
+Number od Passes = (n-1) 
+In fisrt pass there is only one comparisons.
+In seond pass there is two comparisons and so on.
+Number of comparison = 1+2+3+4+......+n =n(n-1)/2
+Complexity of this Sorting Technique is O(n^2).
+Number of Swaps = 1+2+3+4+......+n =n(n-1)/2 = O(n^2)
+*/
+#include<iostream>
+#include<conio.h>
+using namespace std;
+void insertion(int a[],int n)
+{
+   for(int i=1;i<=n-1;i++)
+   {
+	int e=a[i];
+       //place the current element at 
+      //the right position in the sorted part
+	int j=i-1;
+	while(a[j]>e && j>=0)
+	{
+		a[j+1]=a[j];
+		j=j-1;	
+	}
+	a[j+1]=e;
+	}
+}
+int main()
+{
+	int n;
+	cout<<"Enter the number of elements";
+	cin>>n;
+	int a[n];
+	cout<<"Enter the number of elements\n";
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	insertion(a,n);
+	cout<<"\nSorted  array is - ";
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	return 0;
+}

@@ -1,0 +1,103 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class queue
+{
+	private:
+		struct node 
+		{
+			int data;
+			struct node *next;
+		}*front=NULL,*rear=NULL;
+		public:
+			queue()
+			{
+				front=NULL;
+				rear=NULL;
+			}
+			void enqueue();
+			void dequeue();
+			void display();
+};
+void queue::dequeue()
+{
+	struct node *k;
+	k= new struct node();
+	k=front;
+	front=front->next;
+	delete k;
+}
+void queue::enqueue()
+{
+	cout<<"\nEnter the number";
+	int n;
+	cin>>n;
+	struct node *temp;
+	temp=new struct node();
+	temp->data=n;
+	temp->next=NULL;
+	if(front==NULL)
+	{
+		front=temp;
+		rear=temp;
+	}
+	else
+	{
+		rear->next=temp;
+		rear=rear->next;
+	}
+}
+void queue::display()
+{
+	struct node *t;
+	t=new struct node();
+	t=front;
+	if(t==NULL)
+	{
+		cout<<"Queue is empty";
+	}
+	else
+	{
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+    queue q;
+	int choice,n;
+	label:
+	system("CLS");
+	cout<<"1.Enter 1 for Enqueue Operation";
+	cout<<"\n2.Enter 2 for Dequeue Operation";
+	cout<<"\n3.Enter 3 for Display Operation";
+	cin>>choice;
+	switch(choice)
+	{
+		case 1:
+		q.enqueue();
+		goto label;
+		case 2:
+		q.dequeue();
+		goto label;
+		case 3:
+		q.display();
+		cout<<"\nEnter 1 for continue and 0 for exit";
+		int b;
+		cin>>b;
+		if(b==1)
+		{
+			goto label;
+		}
+		else
+		{
+			exit(-1);
+		}
+		goto label;
+	}
+	getch();
+	return 0;
+}

@@ -19,8 +19,8 @@ function work(x) {
     var s = x.split(' ').join('-'); 
     var sr = '/Array/'+s+pic;
     $('#main')
-    .append('<button onclick="goBack()" class="back">Back</button>')
-    .append('<div class="heading"></div>')
+    .append('<button onclick="goBack()" class="back" onmousedown="return false" onselectstart="return false">Back</button>')
+    .append('<div class="heading" onmousedown="return false" onselectstart="return false"></div>')
     .append('<div class="content"></content>')
     .append('<div class="output">Output</div>')
     .append('<img class="img" id="img" alt="No image Found" src="" >')

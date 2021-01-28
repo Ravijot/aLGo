@@ -164,12 +164,11 @@ footer
     width: 100%;
     height:35px;
     background-color: #E94B3CFF;
-    display: block;
 }
 .foot1
 {
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     text-decoration:none;
     color: black;
@@ -182,11 +181,12 @@ footer
      font-weight: bold;
      color: black;
      padding: 5px;
+    
 }
 @media (min-width:551px)
 {
     footer
     {
-        height: 55px;
+        height: 35px;
     }
 }

@@ -1,0 +1,80 @@
+#include<iostream>
+#include<conio.h>
+#include<algorithm>
+using namespace std;
+class node
+{
+	public:
+	int data;
+	node *left;
+	node *right;
+		node(int d)
+		{
+			data=d;
+			right=NULL;
+			left=NULL;
+		}
+};
+node* buildtree()
+{
+	int d;
+	cin>>d;
+	if(d==-1)
+	{
+		return NULL;
+		
+	}
+	node *root=new node(d);
+	root->data=d;
+	root->left=buildtree();
+	root->right=buildtree();
+	return root;
+	
+	
+}
+void print(node *root)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	cout<<root->data<<" ";
+	print(root->left);
+	print(root->right);
+	
+}
+int height(node *root)
+{
+	if(root==NULL)
+	{
+		return 0;
+	}
+	int lsth=height(root->left);
+	int rsth=height(root->right);
+	return max(lsth,rsth)+1;
+}
+int main()
+{
+	node *root=buildtree();
+	print(root);
+	int h=height(root);
+	cout<<"\nHeight of the root - "<<h;
+	return 0;
+}
+/*
+Input
+5
+2 
+6
+-1 
+-1
+-1
+7
+-1
+-1    
+            5
+          /   \
+        2      7
+       /
+     6
+*/	      

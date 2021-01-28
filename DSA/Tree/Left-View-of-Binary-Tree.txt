@@ -1,0 +1,72 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class node
+{
+	public:
+	int data;
+	node *left;
+	node *right;
+		node(int d)
+		{
+			data=d;
+			right=NULL;
+			left=NULL;
+		}
+};
+node* buildtree()
+{
+	int d;
+	cin>>d;
+	if(d==-1)
+	{
+		return NULL;
+		
+	}
+	node *root=new node(d);
+	root->data=d;
+	root->left=buildtree();
+	root->right=buildtree();
+	return root;
+	
+	
+}
+void print(node *root)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	cout<<root->data<<" ";
+	print(root->left);
+	print(root->right);
+	
+}
+void leftview(node *root,int level,int *maxlevel)
+{
+	//Base Case
+	if(root==NULL)
+	{
+		return;
+	}
+	if(*maxlevel<level)
+	{
+		cout<<root->data<<" ";
+		*maxlevel=level;
+	}
+	leftview(root->left,level+1,maxlevel);
+	leftview(root->right,level+1,maxlevel);
+}
+void left(node *root)
+{
+	int maxlevel=0;
+	leftview(root,1,&maxlevel);
+}
+int main()
+{
+	node *root=buildtree();
+	print(root);
+	cout<<"\nLeft View of Binary Tree - ";
+	left(root);
+	return 0;
+}

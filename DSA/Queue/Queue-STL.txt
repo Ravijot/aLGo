@@ -1,0 +1,68 @@
+#include<iostream>
+#include<queue>
+using namespace std;
+class que
+{
+	queue<int> q1;
+	public:
+		
+		void enqueue();
+		void dequeue();
+		void display();
+};
+void que::enqueue()
+{
+	int n;
+	cout<<"Enter the number you want to enter";
+	cin>>n;
+	q1.push(n);
+}
+void que::dequeue()
+{
+    q1.pop();
+    
+}
+void que::display()
+{
+	cout<<"Elements of the Queue are";
+    for(auto i=q1.front();i<=q1.back();i++)
+    {
+    	cout<<i<<" ";
+    	
+	}
+}
+int main()
+{
+    que q;
+	int choice,n;
+	label:
+	system("CLS");
+	cout<<"1.Enter 1 for Enqueue Operation";
+	cout<<"\n2.Enter 2 for Dequeue Operation";
+	cout<<"\n3.Enter 3 for Display Operation";
+	cin>>choice;
+	switch(choice)
+	{
+	   case 1:
+	   q.enqueue();
+	   goto label;
+	   case 2:
+	   q.dequeue();
+	   goto label;
+	   case 3:
+	   q.display();
+	   cout<<"\nEnter 1 for continue and 0 for exit";
+	   int b;
+	   cin>>b;
+	   if(b==1)
+	   {
+		goto label;
+	    }
+	    else
+	    {
+		exit(-1);
+	     }
+	     goto label;
+	}
+       return 0;
+}

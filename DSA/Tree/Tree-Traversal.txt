@@ -1,0 +1,107 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+int data;
+struct node *left;
+struct node *right;
+}*root=NULL;
+void insert(int a)
+{
+struct node *temp,*p,*cur,*par;
+temp=new struct node();
+temp->data=a;
+temp->right=NULL;
+temp->left=NULL;
+p=root;
+if(root==NULL)
+{
+root=temp;
+}
+else
+{
+cur=root;
+while(cur!=NULL)
+{
+par=cur;
+if(temp->data>cur->data)
+{
+cur=cur->right;
+}
+else
+{
+cur=cur->left;
+}
+}
+if(temp->data>par->data)
+{
+par->right=temp;
+}
+else
+{
+par->left=temp;
+}
+}
+
+}
+void inorder(struct node *t)
+{
+if(t->left!=NULL)
+{
+inorder(t->left);
+
+}
+cout<<t->data<<"\t";
+if(t->right!=NULL)
+{
+inorder(t->right);
+
+}
+}
+void preorder(struct node *t)
+{
+
+cout<<t->data<<"\t";
+if(t->left!=NULL)
+{
+preorder(t->left);
+}
+if(t->right!=NULL)
+{
+preorder(t->right);
+}
+}
+void postorder(struct node *t)
+{
+
+if(t->left!=NULL)
+{
+postorder(t->left);
+}
+if(t->right!=NULL)
+{
+postorder(t->right);
+}
+cout<<t->data<<"\t";
+}
+int main()
+{
+insert(38);
+insert(14);
+insert(8);
+insert(23);
+insert(18);
+insert(56);
+insert(45);
+insert(82);
+insert(70);
+cout<<"Inorder -  ";
+inorder(root);
+cout<<endl<<"Preorder -  ";
+preorder(root);
+cout<<endl<<"Postorder - ";
+postorder(root);
+getch();
+return 0;
+}
