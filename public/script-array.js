@@ -1,3 +1,4 @@
+const { registerPartial } = require("hbs");
 
 var k1 = document.getElementById('a1');
 var k2 = document.getElementById('a2');
@@ -99,11 +100,5 @@ k12.addEventListener("click", function () {
     $('.box').remove();
     work(x);
 });
-k13.addEventListener("click", function () {
-    var x = String(k13.innerText);
-    $('.box').remove();
-    work(x);
-});
-
 
 
