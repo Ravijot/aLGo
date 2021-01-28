@@ -26,6 +26,7 @@ router.get('/Linked-List/:file', (req, res) => {
     fs.readFile('./DSA/Linked-List/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
          res.send(data)
+         res.end(); 
     });
   });
 router.get('/Linked-List/:file/pic', (req, res) => {
@@ -33,6 +34,7 @@ router.get('/Linked-List/:file/pic', (req, res) => {
       fs.readFile('./DSA/Linked-List/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Array/:file', (req, res) => {
@@ -40,7 +42,8 @@ router.get('/Array/:file', (req, res) => {
   
     fs.readFile('./DSA/Array/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Array/:file/pic', (req, res) => {
@@ -48,6 +51,7 @@ router.get('/Array/:file/pic', (req, res) => {
       fs.readFile('./DSA/Array/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Stack/:file', (req, res) => {
@@ -55,7 +59,8 @@ router.get('/Stack/:file', (req, res) => {
   
     fs.readFile('./DSA/Stack/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Stack/:file/pic', (req, res) => {
@@ -63,6 +68,7 @@ router.get('/Stack/:file/pic', (req, res) => {
       fs.readFile('./DSA/Stack/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Queue/:file', (req, res) => {
@@ -70,7 +76,8 @@ router.get('/Queue/:file', (req, res) => {
   
     fs.readFile('./DSA/Queue/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Queue/:file/pic', (req, res) => {
@@ -78,6 +85,7 @@ router.get('/Queue/:file/pic', (req, res) => {
       fs.readFile('./DSA/Queue/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Tree/:file', (req, res) => {
@@ -85,7 +93,8 @@ router.get('/Tree/:file', (req, res) => {
   
     fs.readFile('./DSA/Tree/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Tree/:file/pic', (req, res) => {
@@ -93,6 +102,7 @@ router.get('/Tree/:file/pic', (req, res) => {
       fs.readFile('./DSA/Tree/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Sorting/:file', (req, res) => {
@@ -100,7 +110,8 @@ router.get('/Sorting/:file', (req, res) => {
   
     fs.readFile('./DSA/Sorting/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Sorting/:file/pic', (req, res) => {
@@ -108,6 +119,7 @@ router.get('/Sorting/:file/pic', (req, res) => {
       fs.readFile('./DSA/Sorting/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/String/:file', (req, res) => {
@@ -115,7 +127,8 @@ router.get('/String/:file', (req, res) => {
   
     fs.readFile('./DSA/String/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/String/:file/pic', (req, res) => {
@@ -123,6 +136,7 @@ router.get('/String/:file/pic', (req, res) => {
       fs.readFile('./DSA/String/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Recursion/:file', (req, res) => {
@@ -130,7 +144,8 @@ router.get('/Recursion/:file', (req, res) => {
   
     fs.readFile('./DSA/Recursion/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Recursion/:file/pic', (req, res) => {
@@ -138,6 +153,7 @@ router.get('/Recursion/:file/pic', (req, res) => {
       fs.readFile('./DSA/Recursion/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('/Matrix/:file', (req, res) => {
@@ -145,7 +161,8 @@ router.get('/Matrix/:file', (req, res) => {
   
     fs.readFile('./DSA/Matrix/'+name+ext,'utf8',function(err,data) {
         if(err) throw err;
-         res.send(data)
+         res.send(data);
+         res.end(); 
     });
   });
 router.get('/Matrix/:file/pic', (req, res) => {
@@ -153,6 +170,7 @@ router.get('/Matrix/:file/pic', (req, res) => {
       fs.readFile('./DSA/Matrix/'+name+'-Pic'+pic, function (err, data) {
         if (err) throw err;
         res.write(data);
+        res.end(); 
       });
 });
 router.get('*', (req, res) => {
