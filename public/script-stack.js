@@ -3,10 +3,8 @@ var k2 = document.getElementById('s2');
 var k3 = document.getElementById('s3');
 var k4 = document.getElementById('s4');
 var k5 = document.getElementById('s5');
-var k6 = document.getElementById('s6');
-var k7 = document.getElementById('s7');
-var k8 = document.getElementById('s8');
-var k9 = document.getElementById('s9');
+
+
 function goBack() {
     window.location.reload()
   }
@@ -64,18 +62,4 @@ k6.addEventListener("click", function () {
     $('.box').remove();
     work(x);
 });
-k7.addEventListener("click", function () {
-    var x = String(k7.innerText);
-    $('.box').remove();
-    work(x);
-});
-k8.addEventListener("click", function () {
-    var x = String(k8.innerText);
-    $('.box').remove();
-    work(x);
-});
-k9.addEventListener("click", function () {
-    var x = String(k9.innerText);
-    $('.box').remove();
-    work(x);
-});
+
