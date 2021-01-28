@@ -21,7 +21,7 @@ var k20 = document.getElementById('l20');
 var k21 = document.getElementById('l21');
 var k22 = document.getElementById('l22');
 var k23 = document.getElementById('l23');
-var k24 = document.getElementById('l24');
+
 function goBack() {
     window.location.reload()
   }
@@ -168,9 +168,5 @@ k23.addEventListener("click", function () {
     $('.box').remove();
     work(x);
 });
-k24.addEventListener("click", function () {
-    var x = String(k24.innerText);
-    $('.box').remove();
-    work(x);
-});
+
 
