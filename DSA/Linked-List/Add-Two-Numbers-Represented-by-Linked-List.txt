@@ -191,29 +191,29 @@ void addlist(node *p,node *q)
 }
 struct node * buildlist()
 {
-	cout<<"Enter the number of elements you want to enter";
-	int n;
-	cin>>n;
-	node *head=NULL,*last=NULL;
-	for(int i=0;i<n;i++)
-	{
-	                       struct node *temp;
-	                       temp=new struct node();
-	                       cin>>temp->data;
-                               if(head==NULL)
-                               {
-                                       temp->next=NULL;
-                                       head=temp;
-                                       last=head;
-                                }
-                                else
-                                {
-                                       temp->next=NULL;
-                                       last->next=temp;
-                                       last=temp;
-                                 } 
-	}
-	return head;
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    node *head=NULL,*last=NULL;
+    for(int i=0;i<n;i++)
+    {
+	 struct node *temp;
+	 temp=new struct node();
+	 cin>>temp->data;
+                 if(head==NULL)
+                 {
+                            temp->next=NULL;
+                            head=temp;
+                            last=head;
+                  }
+                  else
+                  {
+                          temp->next=NULL;
+                          last->next=temp;
+                          last=temp;
+                   } 
+     }
+     return head;
 }
 int main()
 {

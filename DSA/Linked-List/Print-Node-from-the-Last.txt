@@ -78,17 +78,17 @@ void list::display()
 }
 int main()
 {
-	list l;
-	cout<<"Enter the number of elements you want to enter";
-	int n;
-	cin>>n;
-	int a;
-	for(int i=0;i<n;i++)
-	{
-		l.insert();
-	}
-	l.display();
-	l.printnode();
-	getch();
-	return 0;
+    list l;
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+	l.insert();
+     }
+    l.display();
+    l.printnode();
+    getch();
+    return 0;
 }
