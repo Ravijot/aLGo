@@ -3,16 +3,16 @@
 using namespace std;
 void targetsum(int a[],int num,int target)
 {
-	for(int i=0;i<num;i++)
+     for(int i=0;i<num;i++)
+     {
+	for(int j=i+1;j<num;j++)
 	{
-		for(int j=i+1;j<num;j++)
+		if(a[i]+a[j]==target)
 		{
-			if(a[i]+a[j]==target)
-			{
-				cout<<a[i]<<" and "<<a[j]<<endl;
-			}
+			cout<<a[i]<<" and "<<a[j]<<endl;
 		}
 	}
+      }
 }
 int main()
 {
