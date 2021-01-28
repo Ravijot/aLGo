@@ -1,0 +1,83 @@
+#include<iostream>
+#define MAX 5
+using namespace std;
+class queue
+{
+	int front,rear;
+	int a[MAX];
+	public:
+	queue()
+	{
+		front=0;
+		rear=0;	
+	}
+	void enqueue();
+	void dequeue();
+	void display();
+};
+void queue::enqueue()
+{
+  int n;
+  if(rear==MAX)
+  {
+     cout<<"Queue is FULL\nPress 0 for continue";
+     cin>>n;
+     if(n==0)
+     {
+          exit(-1);
+      }
+   }
+   else
+   { 
+        cout<<"\nEnter the number you want to enter";
+        cin>>n;
+        a[rear++]=n;	
+    }
+}
+void queue::dequeue()
+{
+    front++;
+}
+void queue::display()
+{
+	cout<<"Elements of the Queue are";
+	for(int i=front;i<rear;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+}
+int main()
+{
+	queue q;
+	int choice,n;
+	label:
+	system("CLS");
+	cout<<"1.Enter 1 for Enqueue Operation";
+	cout<<"\n2.Enter 2 for Dequeue Operation";
+	cout<<"\n3.Enter 3 for Display Operation";
+	cin>>choice;
+	switch(choice)
+	{
+	case 1:	
+	q.enqueue();
+	goto label;
+	case 2:
+	 q.dequeue();
+	 goto label;
+	 case 3:
+	 q.display();
+	 cout<<"\nEnter 1 for continue and 0 for exit";
+	 int b;
+	 cin>>b;
+	 if(b==1)
+	 {
+		goto label;
+	 }
+	 else
+	 {
+		exit(-1);
+	 }
+	goto label;
+        }
+        return 0;
+}

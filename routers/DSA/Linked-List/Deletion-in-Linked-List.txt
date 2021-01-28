@@ -1,0 +1,130 @@
+#include<iostream>
+#include<conio.h>
+#include<windows.h>
+using namespace std;
+class list
+{
+     private:
+	struct node
+	{
+		int data;
+		struct node *next;
+	}*head=NULL,*last=NULL;
+     public:
+	list()
+	{
+	     head=NULL;
+	}	
+	void deletepos();
+	void display();
+	void insert();
+	void deleteend();
+	void deletebeg();
+};
+void list::insert()
+{
+	cout<<"Enter the number";
+	int n;
+	cin>>n;
+	struct node *temp;
+	temp=new struct node();
+	temp->data=n;
+	temp->next=NULL;
+	if(head==NULL)
+	{
+		head = last = temp;
+	}
+	else
+	{
+		last->next = temp;
+		last = temp;
+	}
+}
+void list::deletebeg()
+{
+	struct node *temp;
+	temp=new struct node();
+	temp=head;
+	head=head->next;
+	delete temp;
+}
+void list::deleteend()
+{
+	struct node *temp,*pre;
+	pre=NULL;
+	temp=head;
+	while(temp->next!=NULL)
+	{
+		pre=temp;
+		temp=temp->next;
+	}
+	pre->next=NULL;
+	delete temp;
+}
+void list::deletepos()
+{
+struct node *temp,*pre;
+pre=NULL;
+temp=head;
+cout<<"Enter the position where you want to delete the node";
+int pos;
+cin>>pos;
+for(int i=1;i<pos;i++)
+{
+	pre=temp;
+	temp=temp->next;
+}
+pre->next=temp->next;
+delete temp;
+}
+void list::display()
+{
+	if(head==NULL)
+	{
+	     cout<<"List is empty";
+	}
+	else
+	{
+	     struct node *m;
+                     m=head;
+	     cout<<"Linked List:";
+	     while(m!=NULL)
+	     {
+		cout<<m->data<<" ";
+		m=m->next;
+	      }
+	}
+};
+
+int main()
+{
+	list l;
+	cout<<"Enter the number of elements you want to enter";
+	int n;
+	cin>>n;
+	int a;
+	for(int i=0;i<n;i++)
+	{
+    	l.insert();
+	}
+	int choice;
+	cout<<"Enter 1 for Deletion at Begining";
+	cout<<"\nEnter 2 for Deletion at specific position";
+	cout<<"\nEnter 3 for Deletion at End";
+	cin>>choice;
+	if(choice==1)
+	{
+	     l.deletebeg();
+	}
+	else if(choice==2)
+	{
+	     l.deletepos();
+	}
+	else
+	{
+	     l.deleteend();
+	}
+	l.display();
+	getch();
+	return 0;
+}

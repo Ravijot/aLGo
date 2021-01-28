@@ -1,0 +1,96 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class list
+{
+     private:
+	struct node
+	{
+	     int data;
+	     struct node *next;
+	}*head=NULL,*last=NULL;
+     public:
+	list()
+	{
+	     head=NULL;
+	}
+	void insert();
+	void display();
+	void search();
+};
+void list::insert()
+{
+	cout<<"Enter the number";
+	int n;
+	cin>>n;
+	struct node *temp;
+	temp=new struct node();
+	temp->data=n;
+	temp->next=NULL;
+	if(head==NULL)
+	{
+	     head = last = temp;
+	}
+	else
+	{
+	     last->next = temp;
+	     last = temp;
+	}
+}
+void list::display()
+{
+	if(head==NULL)
+	{
+	     cout<<"List is empty";
+	}
+	else
+	{
+	     struct node *m;
+	     m=head;
+	     while(m!=NULL)
+	     {
+		cout<<m->data<<" ";
+		m=m->next;
+	     }
+	}
+}
+void list::search()
+{
+	cout<<"Enter the element which you want to search";
+	int item;
+	cin>>item;
+	struct node *temp;
+	temp=head;
+	int p=1;
+	while(temp!=NULL)
+	{
+	     if(temp->data==item)
+	     {
+		cout<<"Item is present at node "<<p;
+		break;
+	     }
+	     else
+	     {
+		temp=temp->next;
+	     }
+	     p=p+1;
+	}
+	if(temp==NULL)
+	{
+	     cout<<"Item is not present in Linked List";
+	}
+}
+int  main()
+{
+   list l;
+   cout<<"Enter the number of elements you want to enter";
+   int n;
+   cin>>n;
+   int a;
+   for(int i=0;i<n;i++)
+   {
+       l.insert();
+   }
+   l.search();
+   return 0;
+}

@@ -1,0 +1,50 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int main()
+{
+	int value=1;
+	int a[3][3];
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			a[i][j]=value++;
+		}
+	}
+	cout<<"Matrix\n";
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cout<<a[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	int temp=0,j=0,k=2;
+	
+	for(int i=0;i<3;i++)
+	{
+		j=0;
+		k=2;
+		while(j<k)
+	{
+		temp=a[i][j];
+		a[i][j]=a[i][2-j];
+		a[i][2-j]=temp;
+		j++;
+		k--;
+	}
+	}
+	cout<<"Reverse of row\n";
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cout<<a[i][j]<<" ";
+		}
+	cout<<endl;
+}
+getch();
+return 0;
+}

@@ -1,0 +1,94 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+    if(head==NULL)
+    {
+    	temp->data=n;
+    	temp->next=NULL;
+    	head=temp;
+    	last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=last->next;
+	}
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List is  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+/* Reverses the linked list in groups 
+of size k and returns the pointer 
+to the new head node. */
+node *reverse (node *head, int k)  
+{  
+    node* current = head;  
+    node* next = NULL;  
+    node* prev = NULL;  
+    int count = 0;  
+    /*reverse first k nodes of the linked list */
+    while (current != NULL && count < k)  
+    {  
+        next = current->next;  
+        current->next = prev;  
+        prev = current;  
+        current = next;  
+        count++;  
+    }  
+    /* next is now a pointer to (k+1)th node  
+    Recursively call for the list starting from current.  
+    And make rest of the list as next of first node */
+    if (next != NULL)  
+    {
+       head->next = reverse(next, k);  
+    }
+    /* prev is new head of the input list */
+    return prev;  
+}  
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+    }
+    display(head);
+    int k;
+    cout<<"\nEnter the size of the group";
+    cin>>k;
+    head= reverse(head,k);
+    cout<<"Linked List after reverse operation - \n";
+    display(head);
+    getch();
+    return 0;
+}

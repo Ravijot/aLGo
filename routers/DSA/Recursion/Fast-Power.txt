@@ -1,0 +1,34 @@
+/*  Program to calculate power of a number using recursion
+        we  can write a^b= a*a^(b-1)
+        Recursive Function f(a,b)= f(a,b/2)^2 if b is even 
+                           f(a,b)=a*f(a,b/2)^2 if b is odd
+        */
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int fastpow(int a,int b)
+{
+	if(b==0)
+	{
+		return 1;
+	}
+	int smallpow=fastpow(a,b/2);
+	smallpow*=smallpow;
+	if(b&1)
+	{
+		return a*smallpow;
+	}
+	else
+	{
+		return smallpow;
+	}
+}
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	cout<<a<<"^"<<b<<" is "<<fastpow(a,b);
+	getch();
+	return 0;
+		
+}        

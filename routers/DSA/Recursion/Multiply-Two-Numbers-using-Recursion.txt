@@ -1,0 +1,26 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int product (int m,int n)
+{
+	if(m<n)
+	{
+		return product(n,m);
+	}
+	else if(n!=0)
+	{
+		return m+product(m,n-1);
+	}
+	else
+	{
+		return 0;
+	}
+}
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	cout<<a<<"*"<<b<<" is "<<product(a,b);
+	getch();
+	return 0;
+}

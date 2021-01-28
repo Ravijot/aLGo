@@ -1,0 +1,97 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class list
+{
+	private:
+		struct node 
+		{
+			int data;
+			struct node *next;
+		}*head;
+	public:
+		list()
+		{
+			head=NULL;
+		}
+		void insert();
+		void display();
+		void duplicate();
+};
+void list::duplicate()
+{
+	struct node *p,*q;
+	p=head;
+	q=head->next;
+	while(q!=NULL)
+	{
+		if(p->data!=q->data)
+		{
+			p=q;
+			q=q->next;	
+		}
+		else
+		{
+			p->next=q->next;
+			delete q;
+			q=p->next;
+		}
+	}
+}
+void list::insert()
+{
+	int n;
+	cin>>n;
+	struct node *temp,*last;
+	temp=new struct node();
+
+	if(head==NULL)
+	{
+		temp->data=n;
+		temp->next=NULL;
+		head=temp;
+	                last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+	}
+}
+void list::display()
+{
+	struct node *t;
+	t=new struct node();
+	t=head;
+	if(t==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		while(t!=NULL)
+		{
+		     cout<<t->data<<" ";
+		     t=t->next;
+		}
+	}
+}
+int main()
+{
+	list l;
+	cout<<"Enter the number of elements you want to enter";
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		l.insert();
+	}
+	l.display();
+	cout<<"\nLinked list after removal of Duplicates : ";
+	l.duplicate();
+	l.display();
+	getch();
+	return 0;
+}

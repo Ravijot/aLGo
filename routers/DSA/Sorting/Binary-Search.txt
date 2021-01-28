@@ -1,0 +1,45 @@
+//This search only work on Sorted Data
+#include<iostream>
+using namespace std;
+int binarySearch(int a[], int start, int end, int key) 
+{ 
+     int mid =0;
+     while(start<=end)
+     {
+         mid=(start+end)/2;
+         if(a[mid]==key)
+         {
+          cout<<key<<" is present at index "<<mid+1;
+          return 0;
+          }
+          else if(a[mid]>key)
+          {
+	 end=mid-1;
+           }
+          else
+          {
+               start=mid+1;
+           }
+       }
+      return 1;
+} 
+int main()
+{
+    int n;
+    cout<<"Enter the number";
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+	cin>>a[i];
+     }
+    int key;
+    cout<<"\nEnter the number you want to search";
+    cin>>key;
+    int start=0,end=n-1;
+    if(binarySearch(a,start,end,key))
+    {
+	cout<<"Element is not present";
+     }
+     return 0;
+}

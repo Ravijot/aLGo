@@ -6,7 +6,12 @@ var k5 = document.getElementById('t5');
 var k6 = document.getElementById('t6');
 var k7 = document.getElementById('t7');
 var k8 = document.getElementById('t8');
-
+var k9 = document.getElementById('t9');
+var k10 = document.getElementById('t10');
+var k11 = document.getElementById('t11');
+var k12 = document.getElementById('t12');
+var k13 = document.getElementById('t13');
+var k14 = document.getElementById('t14');
 function goBack() {
     window.location.reload()
   }
@@ -71,6 +76,36 @@ k7.addEventListener("click", function () {
 });
 k8.addEventListener("click", function () {
     var x = String(k8.innerText);
+    $('.box').remove();
+    work(x);
+});
+k9.addEventListener("click", function () {
+    var x = String(k9.innerText);
+    $('.box').remove();
+    work(x);
+});
+k10.addEventListener("click", function () {
+    var x = String(k10.innerText);
+    $('.box').remove();
+    work(x);
+});
+k11.addEventListener("click", function () {
+    var x = String(k11.innerText);
+    $('.box').remove();
+    work(x);
+});
+k12.addEventListener("click", function () {
+    var x = String(k12.innerText);
+    $('.box').remove();
+    work(x);
+});
+k13.addEventListener("click", function () {
+    var x = String(k13.innerText);
+    $('.box').remove();
+    work(x);
+});
+k14.addEventListener("click", function () {
+    var x = String(k14.innerText);
     $('.box').remove();
     work(x);
 });

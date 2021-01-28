@@ -1,0 +1,96 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+                if(head==NULL)
+                {
+    	               temp->data=n;
+    	               temp->next=NULL;
+    	               head=temp;
+    	               last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+	}
+}
+node * deletemid(struct node *head)
+{
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    else if(head->next==NULL)
+    {
+        delete head;
+        return NULL;
+    }
+    else
+    {
+        struct node *slow,*fast,*pre=NULL;
+        slow = head;
+        fast = head;
+        while(fast->next!=NULL)
+        {
+            pre = slow;
+            slow=slow->next;
+            fast = fast ->next;
+            if(fast->next!=NULL)
+            {
+                 fast = fast ->next;
+            }
+            else
+            {
+                break;
+            }
+        }
+        pre->next = pre->next->next;
+        delete slow;
+        return head;
+    } 
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List is  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+    	 cin>>a;
+     	 insert(a);
+    }
+    head = deletemid(head);
+    display(head);
+    getch();
+    return 0;
+}

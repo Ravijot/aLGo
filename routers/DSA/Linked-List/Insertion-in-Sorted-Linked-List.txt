@@ -1,0 +1,95 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+                if(head==NULL)
+                {
+    	               temp->data=n;
+    	               temp->next=NULL;
+    	               head=temp;
+    	               last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+	}
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List is  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+node * insertsorted(struct node *head,int data)
+{
+	node *temp = new node();
+	temp->data=data;
+	temp->next=NULL;
+	if(head == NULL)
+                {
+                      head = temp;
+                      return temp;
+                 }
+                if(data <= head->data)
+                {
+                      temp->next = head;
+                      head = temp;
+                      return head;
+                 }
+                node *curr = head->next, *prev = head;
+                while(curr != NULL)
+                {
+                     if(curr->data > data)
+                     {
+                            temp->next = curr;
+                            prev->next = temp;
+                            return head;
+                     }
+                     prev = curr;
+                     curr = curr->next;
+    }
+    prev->next = temp;
+    return head;
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+     }
+    cout<<"Enter the Number ";
+    int m;
+    cin>>m;
+    head=insertsorted(head,m);
+    display(head);
+    getch();
+    return 0;
+}

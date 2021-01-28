@@ -1,0 +1,96 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+    if(head==NULL)
+    {
+    	temp->data=n;
+    	temp->next=NULL;
+    	head=temp;
+    	last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=last->next;
+	}
+	
+}
+void display(struct node *head)
+{
+	if(head==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		struct node *t;
+		t=head;
+		cout<<"Linked List is  - ";
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int detectcycle()
+{
+	struct node *slow,*fast;
+	int flag=0;
+	slow=head;
+	fast=head;
+	while(fast!=NULL && fast->next!=NULL)
+	{
+		slow=slow->next;
+		fast=fast->next->next;
+		if(slow==fast)
+		{
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+	} 
+	display(head);
+	last->next=head;  // Circular List
+	int x=detectcycle();
+	if(x==1)
+	{
+		cout<<"\nFound Cycle";
+	}
+	else
+	{
+		cout<<"\nNo Cycle Found";
+	}
+	getch();
+	return 0;
+}

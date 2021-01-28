@@ -1,0 +1,39 @@
+#include<iostream>
+#include<algorithm>
+#include<conio.h>
+using namespace std;
+bool compare(int a,int b)
+{
+	return a>b;
+}
+int main()
+{
+	int a[]={2,75,658,255,3541,3252,696};
+	int n=7;
+	sort(a,a+n);
+	cout<<"Sort in Ascending Order :";
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	cout<<"\nSort in Descending Order :";
+	sort(a,a+n,compare);
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	getch();
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+

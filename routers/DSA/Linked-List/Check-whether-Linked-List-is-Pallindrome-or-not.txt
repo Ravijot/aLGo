@@ -1,0 +1,86 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+struct node
+{
+	int data;
+	struct node *next;
+}*head=NULL,*last=NULL;
+void insert(int n)
+{
+	struct node *temp;
+	temp=new struct node();
+                if(head==NULL)
+                {
+    	     temp->data=n;
+    	     temp->next=NULL;
+    	     head=temp;
+    	     last=head;
+	}
+	else
+	{
+	     temp->data=n;
+	     temp->next=NULL;
+	     last->next=temp;
+	     last=last->next;
+	}
+}
+
+int count(struct node *head)
+{
+	struct node *p=head;
+	int count=0;
+	while(p!=NULL)
+	{
+		count++;
+		p=p->next;
+	}
+	return count;
+}
+bool pallindrome(struct node *head)
+{
+	struct node *temp;
+	temp=head;
+	int x=count(head);
+	int a[x+1],TOP=0;
+	while(temp!=NULL)
+	{
+		TOP++;
+		a[TOP]=temp->data;
+		temp=temp->next;
+	}
+	while(head!=NULL && TOP!=0)
+	{
+		if(head->data!=a[TOP])
+		{
+			return false;
+			break;
+		}
+		TOP--;
+		head=head->next;
+	}
+	return true;
+}
+int main()
+{
+    cout<<"Enter the number of elements you want to enter";
+    int n;
+    cin>>n;
+    int a;
+    for(int i=0;i<n;i++)
+    {
+     	 cin>>a;
+     	 insert(a);
+    }
+    bool b=pallindrome(head);
+    if(b==true)
+    {
+    	cout<<"TRUE";
+    }
+    else
+    {
+    	cout<<"FALSE";
+    }
+    getch();
+    return 0;
+}

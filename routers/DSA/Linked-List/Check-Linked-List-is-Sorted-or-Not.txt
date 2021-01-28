@@ -1,0 +1,99 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+class list
+{
+     private:
+	struct node 
+	{
+		int data;
+		struct node *next;
+	}*head;
+     public:
+	list()
+	{
+		head=NULL;
+	}
+	void insert();
+	void display();
+	int  issorted();
+};
+int list::issorted()
+{
+	struct node *p;
+	p=head;
+	int x=-65536; //Assigning Min Value
+	while(p->next!=NULL)
+	{
+		if(p->data<x)
+		{
+			
+			return 0;
+		}
+		x=p->data;
+		p=p->next;
+	}
+	return 1;
+}
+void list::insert()
+{
+	int n;
+	cin>>n;
+	struct node *temp,*last;
+	temp=new struct node();
+	if(head==NULL)
+	{
+		temp->data=n;
+		temp->next=NULL;
+		head=temp;
+	    last=head;
+	}
+	else
+	{
+		temp->data=n;
+		temp->next=NULL;
+		last->next=temp;
+		last=temp;
+	}
+}
+void list::display()
+{
+	struct node *t;
+	t=new struct node();
+	t=head;
+	if(t==NULL)
+	{
+		cout<<"List is empty";
+	}
+	else
+	{
+		while(t!=NULL)
+		{
+			cout<<t->data<<" ";
+			t=t->next;
+		}
+	}
+}
+int main()
+{
+	list l;
+	cout<<"Enter the number of elements you want to enter";
+	int n;
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		l.insert();
+	}
+		l.display();
+		int b=l.issorted();
+		if(b==1)
+		{
+			cout<<"\nLinked List is sorted";
+		}
+		else
+		{
+			cout<<"\nLinked List is not sorted";
+		}
+	getch();
+	return 0;
+}

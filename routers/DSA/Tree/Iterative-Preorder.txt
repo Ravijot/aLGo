@@ -1,0 +1,76 @@
+#include<iostream>
+#include<stack>
+#include<conio.h>
+using namespace std;
+class node
+{
+	public:
+	int data;
+	node *left;
+	node *right;
+		node(int d)
+		{
+			data=d;
+			right=NULL;
+			left=NULL;
+		}
+};
+node* buildtree()
+{
+	int d;
+	cin>>d;
+	if(d==-1)
+	{
+		return NULL;
+		
+	}
+	node *root=new node(d);
+	root->data=d;
+	root->left=buildtree();
+	root->right=buildtree();
+	return root;
+	
+	
+}
+void iterativepre(node *root) 
+{ 
+    if (root == NULL) 
+    {
+        return; 
+    }
+    stack<node*> s; 
+// start from root node (set current node to root node) 
+    node* curr = root; 
+// run till stack is not empty or current is  
+// not NULL 
+    while (!s.empty() || curr != NULL) 
+    { 
+        // Print left children while exist 
+        // and keep pushing right into the  
+        // stack. 
+        while (curr != NULL) 
+        { 
+            cout << curr->data << " "; 
+  
+            if (curr->right) 
+                s.push(curr->right); 
+  
+            curr = curr->left; 
+        } 
+        // We reach when curr is NULL, so We 
+        // take out a right child from stack 
+        if (s.empty() == false) 
+        { 
+           curr = s.top(); 
+           s.pop(); 
+        }    
+    } 
+} 
+int main()
+{
+	node *root=buildtree();
+	cout<<"Preorder - ";
+	iterativepre(root);
+	getch();
+	return 0;
+}

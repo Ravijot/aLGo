@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+    int value=1;
+	int a[3][3];
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			a[i][j]=value++;
+		}
+	}
+    cout<<"Matrix\n";
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cout<<a[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+    int temp=0;
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<i;j++)
+        {
+            temp=a[i][j];
+            a[i][j]=a[j][i];
+            a[j][i]=temp;
+        }
+    }
+  
+    int i,k;
+    for(int j=0;j<3;j++)
+    {
+    	i=3-1;
+    	k=0;
+    	while(k<i)
+    	{
+    		temp=a[i][j];
+    		a[i][j]=a[k][j];
+    		a[k][j]=temp;
+    		k++;
+    		i--;
+		}
+	}
+                cout<<"Image after rotation\n";
+    	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cout<<a[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	return 0;
+}

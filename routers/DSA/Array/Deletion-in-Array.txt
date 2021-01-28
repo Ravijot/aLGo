@@ -1,0 +1,28 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+int main()
+{
+	int a[20]={1,2,3,4,5,6};
+	int n=6;
+	cout<<"Elements of array are  ";
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<"\t";
+	}
+	cout<<"\nEnter the position of element which you want to delete from array";
+	int index;
+	cin>>index;
+	for(int i=index-1;i<n;i++)
+	{
+		a[i]=a[i+1];
+	}
+	n--;
+	cout<<"\nElements after deletion ";
+		for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<"\t";
+	}
+	getch();
+	return 0;
+}

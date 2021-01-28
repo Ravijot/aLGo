@@ -6,6 +6,7 @@ var k5 = document.getElementById('r5');
 var k6 = document.getElementById('r6');
 var k7 = document.getElementById('r7');
 var k8 = document.getElementById('r8');
+var k9 = document.getElementById('r9');
 function goBack() {
     window.location.reload()
   }
@@ -70,6 +71,11 @@ k7.addEventListener("click", function () {
 });
 k8.addEventListener("click", function () {
     var x = String(k8.innerText);
+    $('.box').remove();
+    work(x);
+});
+k9.addEventListener("click", function () {
+    var x = String(k9.innerText);
     $('.box').remove();
     work(x);
 });
