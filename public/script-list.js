@@ -110,7 +110,7 @@ k11.addEventListener("click", function () {
 });
 k12.addEventListener("click", function () {
     var x = String(k12.innerText);
-    $('.box').remove();
+    $('.box').remove(); 
     work(x);
 });
 k13.addEventListener("click", function () {
